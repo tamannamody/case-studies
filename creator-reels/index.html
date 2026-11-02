@@ -25,7 +25,9 @@ img{display:block;width:100%;height:auto}
 .mag{max-width:820px;margin:0 auto;background:var(--cream)}
 
 /* cover */
-.cover{position:relative;width:100%;container-type:inline-size;aspect-ratio:210/297;min-height:640px;background:#000 url(img/cover.jpg) center top/cover no-repeat;color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:5.5% 9.5%}
+.cover{position:relative;width:100%;max-width:820px;margin:0 auto;container-type:inline-size;aspect-ratio:210/297;min-height:640px;background:#000 url(img/cover.jpg) center top/cover no-repeat;color:#fff;display:flex}
+.copy{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:space-between;padding:5.5% 9.5%}
+.frame{display:none}
 .mast{display:block;width:100%;height:auto;overflow:visible}
 .mast text{font:700 240px var(--serif);fill:#fff}
 .issue{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #fff;margin-top:3%;padding-top:8px;font-size:max(10px,1.35cqw);letter-spacing:.04em}
@@ -71,8 +73,9 @@ footer p+p{margin-top:12px}
 @media(max-width:560px){
   body{font-size:16px}
   section{padding:44px 6% 4px}
-  .cover{padding:7% 6% 32px;aspect-ratio:auto;min-height:0;background-size:100% auto;justify-content:flex-start}
-  .cover>div:last-child{margin-top:53vw}
+  .cover{aspect-ratio:auto;min-height:0;background-size:100% auto}
+  .copy{padding:7% 6% 32px;justify-content:flex-start}
+  .copy>div:last-child{margin-top:53vw}
   .cta{padding:38px 6% 42px}
   footer{padding:24px 6% 40px}
   .pair{gap:8px}
@@ -81,13 +84,22 @@ footer p+p{margin-top:12px}
   .strip{grid-template-columns:1fr 1fr}
   .issue{flex-direction:column;gap:2px}
 }
+@media(min-width:900px){
+  .cover{max-width:1240px;aspect-ratio:auto;height:min(100vh,860px);min-height:600px;background:#000}
+  .copy{padding:44px 56px 44px 0;margin-left:56px}
+  .frame{display:block;height:min(100vh,860px);min-height:600px;width:auto;flex:none}
+  .cover h1{font-size:clamp(40px,4.6vw,60px)}
+  .cover p{font-size:18px}
+  .kicker{font-size:12px}
+  .issue{font-size:11px}
+  .cover .go{font-size:17px}
+}
 @media print{body{background:#fff}.mag{max-width:none}}
 </style>
 </head>
 <body>
-<main class="mag">
-
 <header class="cover">
+  <div class="copy">
   <div>
     <svg class="mast" viewBox="0 0 1000 180" role="img" aria-label="The Edit"><text x="0" y="172" textLength="1000" lengthAdjust="spacingAndGlyphs">THE EDIT</text></svg>
     <div class="issue"><span>ISSUE N&deg; 1 &middot; THE CREATOR ISSUE</span><span>BY TAMANNA TAHSEEN &middot; NOVEMBER 2026</span></div>
@@ -98,7 +110,11 @@ footer p+p{margin-top:12px}
     <p>How a food creator went from 4 hours and no animations to a high-end reel in 10 minutes, ready to go live.</p>
     <a class="go" href="https://calendly.com/tamanna-tahseen/30min">Book your reel &rarr;</a>
   </div>
+  </div>
+  <img class="frame" src="img/hero.jpg" width="760" height="1351" alt="A frame from the edited reel: slow dopamine set like a magazine title over two women tasting the recipe.">
 </header>
+
+<main class="mag">
 
 <section>
   <div class="label">THE REVEAL</div>
